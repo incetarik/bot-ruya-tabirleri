@@ -23,13 +23,16 @@
   },
   "homepage": "https://github.com/incetarik/bot-ruya-tabirleri#readme",
   "dependencies": {
-    "telegram-bot-framework": "1.0.8",
-    "cheerio": "1.0.0-rc.3",
     "axios": "0.19.2",
-    "telegraf": "3.38.0"
+    "cheerio": "1.0.0-rc.3",
+    "telegraf": "3.38.0",
+    "telegram-bot-framework": "1.0.8"
   },
   "devDependencies": {
-    "typescript": "3.8.3",
-    "@types/cheerio": "0.22.7"
+    "@types/cheerio": "0.22.7",
+    "fuse-box": "^3.7.1",
+    "terser": "^4.6.12",
+    "typescript": "^3.8.3",
+    "uglify-js": "^3.9.1"
   }
 }

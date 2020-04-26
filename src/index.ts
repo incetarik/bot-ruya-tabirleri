@@ -14,8 +14,13 @@ export class RuyaTabirleriBot {
   async * ara() {
     const query = yield {
       input: 'Lütfen aramak istediğiniz kelimeyi girin',
-      match: /\w\w\w+/,
+      match: /[a-zA-ZığüöçşİĞÜÖÇŞ][a-zA-ZığüöçşİĞÜÖÇŞ][a-zA-ZığüöçşİĞÜÖÇŞ][a-zA-ZığüöçşİĞÜÖÇŞ]*/,
       matchError: 'Hatalı bir giriş, lütfen en az 3 harf olmak üzere giriş yapın'
+    }
+
+    if (!query) {
+      yield { message: 'Hatalı giriş, işlem iptal edildi.' }
+      return
     }
 
     let targetUrl = `https://www.ruyatabirleri.com/ara/${query.replace(/\s/g, '+')}`
@@ -42,7 +47,7 @@ export class RuyaTabirleriBot {
       const selectionStr = yield {
         input: `Lütfen seçim yapın:\n\n${entries.map(it => `${it[ 0 ]}) ${it[ 1 ].trim()}`).join('\n')}`,
         match: /[1-9]\d?/,
-        matchInput: 'Hatalı giriş yaptınız, lütfen sadece sayı girin',
+        matchError: 'Hatalı giriş yaptınız, lütfen sadece sayı girin',
         retry: 3,
         didMessageSend: (message: any) => this._messageToEdit = message
       }
@@ -120,7 +125,5 @@ export class RuyaTabirleriBot {
   }
 }
 
-if (require.main === module) {
-  const bot = new RuyaTabirleriBot()
-  bot.start()
-}
+const app = new RuyaTabirleriBot()
+app.start()
