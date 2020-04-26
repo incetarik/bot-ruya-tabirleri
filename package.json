@@ -1,0 +1,33 @@
+{
+  "name": "ruya-tabirleri",
+  "version": "1.0.0",
+  "description": "Rüya Tabirleri arama botu",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/incetarik/bot-ruya-tabirleri.git"
+  },
+  "keywords": [
+    "ruya",
+    "tabir",
+    "bot",
+    "telegram"
+  ],
+  "author": "Tarık İnce <incetarik@hotmail.com>",
+  "license": "SEE LICENSE IN LICENSE",
+  "bugs": {
+    "url": "https://github.com/incetarik/bot-ruya-tabirleri/issues"
+  },
+  "homepage": "https://github.com/incetarik/bot-ruya-tabirleri#readme",
+  "dependencies": {
+    "telegram-bot-framework": "1.0.8",
+    "cheerio": "1.0.0-rc.3"
+  },
+  "devDependencies": {
+    "typescript": "3.8.3",
+    "@types/cheerio": "0.22.7"
+  }
+}
