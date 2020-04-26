@@ -2,6 +2,7 @@ import axios from 'axios'
 import { load as $ } from 'cheerio'
 import { Extra } from 'telegraf'
 import { bot, command, IBot, state } from 'telegram-bot-framework'
+import { encode as urlencode } from 'urlencode'
 
 export interface RuyaTabirleriBot extends IBot {}
 
@@ -14,7 +15,7 @@ export class RuyaTabirleriBot {
   async * ara() {
     const query = yield {
       input: 'Lütfen aramak istediğiniz kelimeyi girin',
-      match: /[a-zA-ZığüöçşİĞÜÖÇŞ][a-zA-ZığüöçşİĞÜÖÇŞ][a-zA-ZığüöçşİĞÜÖÇŞ][a-zA-ZığüöçşİĞÜÖÇŞ]*/,
+      match: /[a-zA-ZığüöçşİĞÜÖÇŞ\s][a-zA-ZığüöçşİĞÜÖÇŞ\s][a-zA-ZığüöçşİĞÜÖÇŞ\s][a-zA-ZığüöçşİĞÜÖÇŞ\s]*/,
       matchError: 'Hatalı bir giriş, lütfen en az 3 harf olmak üzere giriş yapın'
     }
 
@@ -23,7 +24,7 @@ export class RuyaTabirleriBot {
       return
     }
 
-    let targetUrl = `https://www.ruyatabirleri.com/ara/${query.replace(/\s/g, '+')}`
+    let targetUrl = `https://www.ruyatabirleri.com/ara/${urlencode(query.replace(/\s/g, '+'))}`
     try {
       const response = await axios.get(targetUrl, {
         headers: {
