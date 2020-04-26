@@ -1,0 +1,12 @@
+{
+  "compileOnSave": true,
+  "compilerOptions": {
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "rootDir": "src",
+    "sourceMap": true,
+    "outDir": "dist",
+    "declaration": true
+  }
+}
