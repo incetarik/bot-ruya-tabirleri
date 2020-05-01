@@ -127,4 +127,4 @@ export class RuyaTabirleriBot {
 }
 
 const app = new RuyaTabirleriBot()
-app.start()
+app.run()
